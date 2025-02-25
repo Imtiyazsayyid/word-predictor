@@ -11,25 +11,25 @@ import { MySelect } from "@/components/ui/MySelect";
 
 export default function Home() {
   const [input, setInput] = useState("");
-  const [model, setModel] = useState("shakespeare-hamlet.h5");
+  const [model, setModel] = useState("shakespeare-hamlet");
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
   const [modelOptions, setModelOptions] = useState([
     {
       label: "Shakespeare's Hamlet",
-      value: "shakespeare-hamlet.h5",
+      value: "shakespeare-hamlet",
     },
     {
       label: "Shakespeare's Macbeth",
-      value: "shakespeare-macbeth.h5",
+      value: "shakespeare-macbeth",
     },
     {
       label: "Shakespeare's Caesar",
-      value: "shakespeare-caesar.h5",
+      value: "shakespeare-caesar",
     },
     {
       label: "Milton's Paradise",
-      value: "milton-paradise.h5",
+      value: "milton-paradise",
     },
   ]);
 
@@ -56,7 +56,7 @@ export default function Home() {
             <div className="h-full w-full flex justify-center py-20">
               <TextShimmer
                 duration={1.9}
-                className="text-8xl font-bold pb-2 flex justify-center items-center dark:[--base-gradient-color:theme(colors.blue.400)] dark:[--base-color:#4d7a7a]"
+                className="px-10 text-8xl font-bold pb-2 flex justify-center items-center dark:[--base-gradient-color:theme(colors.blue.400)] dark:[--base-color:#4d7a7a]"
               >
                 {text}
               </TextShimmer>
@@ -64,11 +64,11 @@ export default function Home() {
           )}
           <div className="flex flex-col p-10 items-center gap-2 bg-primary">
             <p className="text-secondary w-full text-left text-sm">Book</p>
-            <MySelect className="w-96" onSelect={(val) => setModel(val!)} selectedItem={model} options={modelOptions} />
+            <MySelect className="w-full min-w-96" onSelect={(val) => setModel(val!)} selectedItem={model} options={modelOptions} />
 
             <p className="text-secondary w-full text-left text-sm mt-3">Phrase</p>
             <Input
-              className="w-96"
+              className="w-full min-w-96"
               placeholder="Type a phrase..."
               value={input}
               onChange={(e) => setInput(e.target.value)}

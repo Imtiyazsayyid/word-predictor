@@ -9,13 +9,13 @@ modelName = sys.argv[1]
 inputText = sys.argv[2]
 
 # Load the LSTM Model
-model = load_model(modelName, compile=False)  # Avoid loading with an invalid compile state
+model = load_model(f"{modelName}.h5", compile=False)  # Avoid loading with an invalid compile state
 model.compile(optimizer='adam', loss='categorical_crossentropy')  # Explicitly compile
 
 # print(model)
 
 # Load the tokenizer
-with open('tokenizer.pickle', 'rb') as handle:
+with open(f'{modelName}-tokenizer.pickle', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
 # Function to predict the next word
