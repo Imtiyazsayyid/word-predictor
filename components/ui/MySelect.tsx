@@ -22,7 +22,7 @@ interface Props {
 
 export function MySelect({ placeholder, options, selectedItem, onSelect, className, clearable }: Props) {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <Select
         key={new Date().toString()}
         onValueChange={(val) => onSelect(val)}
